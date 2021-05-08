@@ -28,23 +28,8 @@
         render();
     };
 
-    const render = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-                <li class="list__item${task.done ? " list__item--done " : ""}"
-                >   
-                    <button class="js-doneButton">Zrobione</button>
-                    <button class="js-removeButton">Usuń Zadanie</button>
-                    ${task.content}
-                </li>
-                `;
-        }
-
-        document.querySelector(".js-list").innerHTML = htmlString;
-
-        const removeButtons = document.querySelectorAll(".js-removeButton")
+    const bindEvents = () => {
+        const removeButtons = document.querySelectorAll(".js-removeButton");
 
         removeButtons.forEach((removeButton, index) => {
             removeButton.addEventListener("click", () => {
@@ -61,7 +46,25 @@
 
             });
         });
+    };
 
+    const render = () => {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString += `
+                <li class="list__item${task.done ? " list__item--done " : ""}"
+                >   
+                    <button class="js-doneButton">Zrobione</button>
+                    <button class="js-removeButton">Usuń Zadanie</button>
+                    ${task.content}
+                </li>
+                `;
+        };
+
+        document.querySelector(".js-list").innerHTML = htmlString;
+
+        bindEvents();
     };
 
     const onFormSubmit = (event) => {

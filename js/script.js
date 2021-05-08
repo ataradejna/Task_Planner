@@ -17,12 +17,25 @@
             htmlString += `
                 <li class="list__item${task.done ? " list__item--done " : ""}"
                 >
+                    <button class="js-removeButton">Usuń Zadanie</button>
                     ${task.content}
                 </li>
                 `;
         }
         
         document.querySelector(".js-list").innerHTML = htmlString;
+
+        const removeButtons = document.querySelectorAll(".js-removeButton")
+        
+        removeButtons.forEach((removeButton, index) => {
+            removeButton.addEventListener("click", () => {
+                tasks.splice(index, 1);
+                render();
+            });
+            
+        
+        });
+  
     };
 
     const addNewTask = (newTaskContent) => {

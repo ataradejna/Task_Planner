@@ -1,8 +1,42 @@
-.list__item {
+.list {
+    padding: 20px;
+    margin-top: 5x;
     list-style-type: none;
+
+}
+
+.list__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 20px;
+    align-items: center;
+    word-break: break-word;
+    flex-basis: 700px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
 }
 
 .list__item--done {
     text-decoration: line-through;
 }
+
+.list__button {
+    border: none;
+    padding: 5px;
+    width: 33px;
+    height: 33px;
+}
+
+.list__button--done {
+    background-color: green;
+    color: ivory;
+}
+
+.list__button--delete {
+    background-color: red;
+   
+}
+
+
+
 
